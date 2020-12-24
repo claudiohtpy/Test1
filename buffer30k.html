@@ -1,0 +1,37 @@
+ 
+<html>
+<head>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+	<style>
+		#map {position: absolute; top:0; bottom:0; left: 0;right: 0;}
+	</style>	
+</head>
+<body>
+	<div id = "map"></div>
+	<script>
+		var map =L.map('map').setView([0,0],1);
+		L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=BRMFWWmfrayYlaB13uA0', {
+			attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
+		}).addTo(map); 
+		
+		var marker = L.marker([45.261487920048204, 9.047421983834589]).addTo(map);
+		
+		var circle = L.circle([45.261487920048204, 9.047421983834589], {
+			color: 'red',
+			fillColor: '#f03',
+			fillOpacity: 0.2,
+			radius:30000
+			}).addTo(map);
+		
+		marker.bindPopup("<b>Trivolzio</b>").openPopup();
+		circle.bindPopup("Buffer 30 Km");
+	
+		
+	
+			
+	</script>
+	
+
+</body>
+</html>
